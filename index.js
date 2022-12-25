@@ -12,17 +12,10 @@ const app = express();
 dotenv.config();
 mongoose.set('strictQuery', false);
 
-const connect = async () => {
-  try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/lightweight');
-    console.log("Connected to mongoDB.");
-  } catch (error) {
-    throw error;
-  }
-};
-
-mongoose.connection.on("disconnected", () => {
-  console.log("mongoDB disconnected!");
+mongoose.connect('mongodb://mongo:27017/lightweight');
+const db = mongoose.connection;
+db.once('open', () => {
+  console.log('DB connection is established');
 });
 
 //middlewares
@@ -47,6 +40,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(3000, () => {
-  connect();
   console.log("Connected to backend.");
 });
