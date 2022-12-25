@@ -1,84 +1,41 @@
-'use strict';
-const password = require('../app/password.js')
-const Password = new password()
-
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    static associate(models) {
-      User.hasMany(models.Post);
-      User.hasMany(models.Comment);
-      User.hasMany(models.Reaction);
-      User.belongsTo(models.Role);
-    }
-  }
-  User.init({
+import mongoose from "mongoose";
+const UserSchema = new mongoose.Schema(
+  {
     username: {
-      type: DataTypes.STRING,
-      allowNull: true,
+      type: String,
+      required: true,
       unique: true,
-      min: 5,
-      max: 20,
     },
     email: {
-      type: DataTypes.STRING,
-      isEmail: true,
-      allowNull: false,
+      type: String,
+      required: true,
       unique: true,
-      min: 5,
-      max: 20,
+    },
+    country: {
+      type: String,
+      required: true,
+    },
+    img: {
+      type: String,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
     },
     password: {
-      type: DataTypes.STRING,
-      min: 5,
-      max: 20,
-      allowNull: false,
+      type: String,
+      required: true,
     },
-    dateOfBirth: {
-      type: DataTypes.DATE,
-      allowNull: true,
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
-    firstName: {
-      type: DataTypes.STRING,
-      min: 5,
-      max: 20,
-      allowNull: true,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      min: 5,
-      max: 20,
-      allowNull: true,
-    },
-    bio: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      min: 20,
-      max: 200
-    },
-    avatar:{
-      type: DataTypes.STRING,
-      allowNull: true,
-      isUrl: true,
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    }
-  }, {
-    hooks: {
-      beforeSave: (user, options) => {
-        user.password = Password.encrypte(user.password);
-      },
-    },
-    sequelize,
-    modelName: 'User',
-  });
-  return User;
-};
+  },
+  { timestamps: true }
+);
+
+export default mongoose.model("User", UserSchema);
