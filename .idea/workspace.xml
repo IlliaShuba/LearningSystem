@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b408fb3-1343-4214-8323-c5f3ddd1e604" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/city.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/City.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/city.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/city.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/city.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/hotel.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/hotel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/City.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/City.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Hotel.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Hotel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/hotels.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/hotels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +26,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -88,6 +94,8 @@
       <workItem from="1672061467657" duration="1000" />
       <workItem from="1672075079170" duration="1216000" />
       <workItem from="1672141824964" duration="15483000" />
+      <workItem from="1672177788453" duration="2453000" />
+      <workItem from="1672232009958" duration="8507000" />
     </task>
     <servers />
   </component>

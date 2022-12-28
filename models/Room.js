@@ -14,6 +14,12 @@ const RoomSchema = new mongoose.Schema(
       required: true,
     },
     roomNumbers: [{ number: Number, unavailableDates: {type: [Date]}}],
+    tenants: {
+      type: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      }],
+    }
   },
   { timestamps: true }
 );

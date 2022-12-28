@@ -44,7 +44,6 @@ export const getCities = async (req, res, next) => {
   try {
     const cities = await City.find({
       ...others,
-      cheapestPrice: { $gt: min | 1, $lt: max || 999 },
     }).limit(req.query.limit);
     res.status(200).json(cities);
   } catch (err) {

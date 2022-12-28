@@ -4,20 +4,16 @@ const HotelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  city: {
-    type: String,
-    required: true,
-  },
   address: {
     type: String,
     required: true,
   },
-  rooms: {
-    type: [String],
+  description: {
+    type: String,
+    required: true,
   },
-  featured: {
-    type: Boolean,
-    default: false,
+  rooms:{
+    type: [{type: mongoose.Schema.Types.ObjectId, ref: "Room"}]
   },
 });
 

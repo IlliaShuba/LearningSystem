@@ -1,4 +1,7 @@
 import User from "../models/User.js";
+import Room from "../models/Room.js";
+import City from "../models/City.js";
+import {json} from "express";
 
 export const updateUser = async (req,res,next)=>{
   try {
@@ -12,6 +15,21 @@ export const updateUser = async (req,res,next)=>{
     next(err);
   }
 }
+
+export const addToRoom = async (req,res,next)=>{
+  const roomId = req.params.roomid;
+  const userId = req.params.userid;
+
+  try {
+    const updatedRoom =await Room.findByIdAndUpdate(roomId, {
+      $push: { tenants: userId },
+    });
+    res.status(200).json(updatedRoom);
+  } catch (err) {
+    next(err);
+  }
+}
+
 export const deleteUser = async (req,res,next)=>{
   try {
     await User.findByIdAndDelete(req.params.id);

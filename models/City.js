@@ -8,12 +8,13 @@ const CitySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  address: {
+  description: {
     type: String,
     required: true,
   },
-  hotels:
-    [{type: mongoose.Schema.Types.ObjectId, ref: "Hotel"}],
+  hotels:{
+    type: [{type: mongoose.Schema.Types.ObjectId, ref: "Hotel"}]
+  },
 });
 
 export default mongoose.model("City", CitySchema)

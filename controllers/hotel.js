@@ -1,11 +1,31 @@
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
+import City from "../models/City.js";
 
-export const createHotel = async (req, res, next) => {
+/*export const createHotel = async (req, res, next) => {
   const newHotel = new Hotel(req.body);
 
   try {
     const savedHotel = await newHotel.save();
+    res.status(200).json(savedHotel);
+  } catch (err) {
+    next(err);
+  }
+};*/
+
+export const createHotel = async (req, res, next) => {
+  const cityId = req.params.cityid;
+  const newHotel = new Hotel(req.body);
+
+  try {
+    const savedHotel = await newHotel.save();
+    try {
+      await City.findByIdAndUpdate(cityId, {
+        $push: { hotels: savedHotel._id },
+      });
+    } catch (err) {
+      next(err);
+    }
     res.status(200).json(savedHotel);
   } catch (err) {
     next(err);
@@ -44,7 +64,6 @@ export const getHotels = async (req, res, next) => {
   try {
     const hotels = await Hotel.find({
       ...others,
-      cheapestPrice: { $gt: min | 1, $lt: max || 999 },
     }).limit(req.query.limit);
     res.status(200).json(hotels);
   } catch (err) {
